@@ -6,17 +6,10 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <main id="content">
-        {% with messages = get_flashed_messages(with_categories=false) %}
-        {% if messages %}
-        <section class="messages">
-            {% for msg in messages %}
-            <p>{{messages}}</p>
-            {% endfor %}
-            </section>
-        {% endif %}
-        {% endwith %}
-        {% block content %}{% endblock %}
-    </main>
+        {% for msg in get_flashed_messages() %}
+                 <p class>{{msg}}</p>
+        {% endfor %}
+        {% block content %}
+        {% endblock %}
 </body>
 </html>
